@@ -4,6 +4,10 @@
   font-weight: bold;
 }
 
+.form-item{
+  list-style-type:none; 
+}
+
 .jumbotron{
   text-align: center;
 }
@@ -17,4 +21,13 @@
 	text-align: center;
   color: gray;
   font-size: 12px;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
