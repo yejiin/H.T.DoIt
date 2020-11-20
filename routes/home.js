@@ -1,4 +1,5 @@
 var express = require('express');
+const session = require('express-session');
 var router = express.Router();
 var db_config = require('../config/database.js');
 var conn = db_config.init();
@@ -7,7 +8,10 @@ db_config.connect(conn);
 
 // Home
 router.get('/', function(req, res){
-    res.render('home');
+
+    res.render('home',{
+        username: session.username
+    });
 });
 
 // Login

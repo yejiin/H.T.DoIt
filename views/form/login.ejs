@@ -11,22 +11,24 @@
     <div class="form-wrap">
         <div class="form-html">
             <input id="tab-1" type="radio" name="tab" class="title" checked><label for="tab-1" class="tab">Login</label>
-            <div class="form">
+            <form class="form" action="/login" method="post">
                 <div class="group">
-                    <label for="user" class="label">Username</label>
-                    <input id="user" type="text" class="input">
+                    <label for="user" class="label">Id</label>
+                    <input type="text" name="id" id="user" class="input">
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
+                    <input type="password" name="password" id="pass" class="input">
                     </div>
+                <% if(user.username) { %>
                 <div class="group">
                     <input type="submit" class="loginbutton" value="Login">
                 </div>
                 <div class="group">
                     <input type="submit" class="signupbutton" value="Sign up">
                 </div>
-            </div>
+                <% } %>
+            </form>
         </div>
     </div>
     <% include ../partials/footer %>
