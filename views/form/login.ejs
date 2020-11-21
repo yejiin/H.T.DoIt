@@ -11,6 +11,9 @@
     <div class="form-wrap">
         <div class="form-html">
             <input id="tab-1" type="radio" name="tab" class="title" checked><label for="tab-1" class="tab">Login</label>
+            <% if(locals.login == "error") { %>
+                <p style="color:red">다시 로그인 해주세요</p>
+            <% } %>
             <form class="form" action="/login" method="post">
                 <div class="group">
                     <label for="user" class="label">Id</label>
@@ -19,15 +22,13 @@
                 <div class="group">
                     <label for="pass" class="label">Password</label>
                     <input type="password" name="password" id="pass" class="input">
-                    </div>
-                <% if(user.username) { %>
+                </div>
                 <div class="group">
                     <input type="submit" class="loginbutton" value="Login">
                 </div>
                 <div class="group">
-                    <input type="submit" class="signupbutton" value="Sign up">
+                    <button type="button" class="signupbutton" onClick="location.href='signup'">Sign up</button>
                 </div>
-                <% } %>
             </form>
         </div>
     </div>

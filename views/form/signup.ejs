@@ -11,27 +11,34 @@
     <div class="form-wrap">
         <div class="form-html">
             <input id="tab-1" type="radio" name="tab" class="title" checked><label for="tab-1" class="tab">Sign up</label>
-            <div class="form">
+            <% if(locals.signup == "existuser") { %>
+                <p style="color:red">이미 존재하는 아이디입니다.</p>
+            <% } else if(locals.signup == "enteruser") { %>
+                <p style="color:aqua">정보를 입력하세요.</p>
+            <% } else if(locals.signup == "passerror") {%>
+                <p style="color:red">비밀먼호가 일치하지 않습니다.</p>
+            <% } %>
+            <form class="form" action="/signup" method="post">
                 <div class="group">
                     <label for="pass" class="label">Id</label>
-                    <input id="pass" type="text" class="input">
+                    <input type="text" name="id" id="pass" class="input">
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
+                    <input type="password" name="password" id="pass"class="input" data-type="password">
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Repeat Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
+                    <input type="password" name="password2" id="pass" class="input" data-type="password">
                 </div>
                 <div class="group">
                     <label for="user" class="label">Username</label>
-                    <input id="user" type="text" class="input">
+                    <input type="text" name="username" id="user" class="input">
                 </div>
                 <div class="group">
                     <input type="submit" class="signupbutton" value="Sign Up">
                 </div>
-            </div>
+            </form>
         </div>
     </div>
     <% include ../partials/footer %>

@@ -5,33 +5,32 @@ var connection = db_config.init();
 
 db_config.connect(connection);
 
-router.get('/', function(reqest, response){
-    response.render('/');
+router.get('/', function (request, response) {
+    response.render('login');
 });
 
-router.post('/', function(request, response){
+router.post('/', function (request, response) {
     var id = request.body.id;
     var password = request.body.password;
-    if(id && password){
-        connection.query('SELECT * FROM user WHERE id = ? AND password = ?', [id, password], function(error, results, fields){
+    if (id && password) {
+        connection.query('SELECT * FROM user WHERE id = ? AND password = ?', [id, password], function (error, results, fields) {
             if (error) throw error;
-            if (results.length > 0){
+            if (results.length > 0) {
                 var username = results[0].username;
-                console.log(username);
                 request.session.loggedin = true;
                 request.session.username = username;
-                response.redirect('./');
-                response.end();
+                response.render('home', { username: request.session.username });
             } else {
-                response.render('/');
+                response.render('form/login', { login: "error" });
             }
         });
     } else {
         response.send('Please enter Id and Password!');
-        response.end();
+        response.redirect('/home');
     }
 
 });
+
 
 
 module.exports = router;

@@ -8,15 +8,12 @@ var sess_config = require('./config/session.js');
 
 var homeRouter = require('./routes/home');
 var loginRouter = require('./routes/login');
+var signupRouter = require('./routes/signup');
 
 var app = express();
 
 app.use(sess_config.init());
 
-app.use(function(request, response, next){
-  response.locals.user = request.session.user;
-  next();
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +28,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.use('/', homeRouter);
 app.use('/login', loginRouter);
+app.use('/logout', loginRouter);
+app.use('/signup', signupRouter);
+
+// app.use(function(request, response, next){
+//   response.locals.currentUser = request.session.username;
+// })
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
