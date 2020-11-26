@@ -5,20 +5,20 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sess_config = require('./config/session.js');
 
+var app = express();
 
+// Router
 var homeRouter = require('./routes/home');
 var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
-
-var app = express();
-
-app.use(sess_config.init());
-
+var trainingRouter = require('./routes/training');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// middleware
+app.use(sess_config.init());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -30,6 +30,8 @@ app.use('/', homeRouter);
 app.use('/login', loginRouter);
 app.use('/logout', loginRouter);
 app.use('/signup', signupRouter);
+app.use('/training', trainingRouter);
+
 
 // app.use(function(request, response, next){
 //   response.locals.currentUser = request.session.username;

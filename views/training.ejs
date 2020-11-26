@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style>
+  /* 사이드바 래퍼 스타일 */
+  #page-wrapper {
+    padding-left: 250px;
+    margin-top:50px;
+    width:102%;
+    margin-left:-1%
+  }
+  
+  #sidebar-wrapper {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    margin-left: -250px;
+    background: #000;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  #page-content-wrapper {
+    width: 100%;
+    padding: 20px;
+  }
+  /* 사이드바 스타일 */
+  
+  .sidebar-nav {
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .sidebar-nav li {
+    text-indent: 1.5em;
+    line-height: 2.8em;
+  }
+  
+  .sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999;
+  }
+  
+  .sidebar-nav li a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .sidebar-nav > .sidebar-brand {
+    font-size: 1.3em;
+    line-height: 3em;
+  }
+</style>
+
+</head>
+<body>
+    <% include ./partials/header %>
+<main>   
+<div id="page-wrapper">
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a href="#">Training</a>
+      </li>
+      <li><a href="#">전체</a></li>
+      <li><a href="#">메뉴 1</a></li>
+      <li><a href="#">메뉴 2</a></li>
+      <li><a href="#">메뉴 3</a></li>
+      <li><a href="#">메뉴 4</a></li>
+      <li><a href="#">메뉴 5</a></li>
+    </ul>
+  </div>
+
+  <div id="page-content-wrapper">
+    <form class="form-inline my-2 my-lg-0" style="user-select: auto;">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" style="user-select: auto;">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit" style="user-select: auto;">Search</button>
+      </form>
+    <div class="container-fluid">
+        <table class="table table-hover" style="user-select: auto;">
+            <thead style="user-select: auto;">
+              <tr style="user-select: auto;">
+                <th scope="col" style="user-select: auto;">Type</th>
+                <th scope="col" style="user-select: auto;">카테고리</th>
+                <th scope="col" style="user-select: auto;">설명</th>
+                <th scope="col" style="user-select: auto;">시작버튼</th>
+              </tr>
+            </thead>
+            <tbody style="user-select: auto;">
+              <tr style="user-select: auto;">
+                <td style="user-select: auto;"><svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size: 1.125rem; text-anchor: middle; user-select: auto;">
+                  <rect width="100%" height="100%" fill="#868e96" style="user-select: auto;"></rect>
+                  <text x="50%" y="50%" fill="#dee2e6" dy=".3em" style="user-select: auto;">Image cap</text>
+                </svg>
+              </td>
+                <td style="user-select: auto;">Column content</td>
+                <td style="user-select: auto;">Column content</td>
+                <td style="user-select: auto;">Column content</td>
+              </tr>
+              <tr style="user-select: auto;">
+                <td style="user-select: auto;"><svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size: 1.125rem; text-anchor: middle; user-select: auto;">
+                  <rect width="100%" height="100%" fill="#868e96" style="user-select: auto;"></rect>
+                  <text x="50%" y="50%" fill="#dee2e6" dy=".3em" style="user-select: auto;">Image cap</text>
+                </svg>
+              </td>
+                <td style="user-select: auto;">Column content</td>
+                <td style="user-select: auto;">Column content</td>
+                <td style="user-select: auto;">Column content</td>
+              </tr>
+              <tr style="user-select: auto;">
+                <td style="user-select: auto;"><svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size: 1.125rem; text-anchor: middle; user-select: auto;">
+                  <rect width="100%" height="100%" fill="#868e96" style="user-select: auto;"></rect>
+                  <text x="50%" y="50%" fill="#dee2e6" dy=".3em" style="user-select: auto;">Image cap</text>
+                </svg>
+              </td>
+                <td style="user-select: auto;">Column content</td>
+                <td style="user-select: auto;">Column content</td>
+                <td style="user-select: auto;">Column content</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+  
+  <div style="user-select: auto;">
+    <ul class="pagination" style="user-select: auto;">
+        <li class="page-item disabled" style="user-select: auto;">
+          <a class="page-link" href="#" style="user-select: auto;">&laquo;</a>
+        </li>
+            <li class="page-item active" style="user-select: auto;">
+              <a class="page-link" href="#" style="user-select: auto;">1</a>
+            </li>
+            <li class="page-item active" style="user-select: auto;">
+              <a class="page-link" href="#" style="user-select: auto;">2</a>
+            </li>
+            <li class="page-item active" style="user-select: auto;">
+              <a class="page-link" href="#" style="user-select: auto;">3</a>
+            </li>
+            <li class="page-item active" style="user-select: auto;">
+              <a class="page-link" href="#" style="user-select: auto;">4</a>
+            </li>
+            <li class="page-item active" style="user-select: auto;">
+              <a class="page-link" href="#" style="user-select: auto;">5</a>
+            </li>
+      <li class="page-item" style="user-select: auto;">
+        <a class="page-link" href="#" style="user-select: auto;">&raquo;</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</main>
+
+<% include ./partials/footer %>
+</body>
+
+</html>
