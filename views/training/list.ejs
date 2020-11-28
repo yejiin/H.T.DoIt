@@ -116,9 +116,9 @@
         <table class="table table-hover" style="user-select: auto;" id="table">
             <thead style="user-select: auto;">
               <tr style="user-select: auto;">
-                <th scope="col" style="user-select: auto;">Type</th>
+                <th scope="col" style="user-select: auto;">Video</th>
                 <th scope="col" style="user-select: auto;">카테고리</th>
-                <th scope="col" style="user-select: auto;">설명</th>
+                <th scope="col" style="user-select: auto;">제목</th>
                 <th scope="col" style="user-select: auto;">시작버튼</th>
               </tr>
             </thead>
@@ -146,7 +146,7 @@
         </li>
         <% for(var i =1 ; i <= model.lastPage; i ++ ){ %>
             <li class="page-item" style="user-select: auto;">
-              <a class="page-link" href="/training/<%=i%>" style="user-select: auto;"><%=i%></a>
+              <a class="page-link" href="/training/all/<%=i%>" style="user-select: auto;"><%=i%></a>
            <% } %>
       <li class="page-item" style="user-select: auto;">
         <a class="page-link" href="#" style="user-select: auto;">&raquo;</a>

@@ -2,10 +2,111 @@
 <html>
 
 <head>
-    <% include ../partials/head %>
-    <link rel="stylesheet" href="/stylesheets/form.css" type="text/css">
-</head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css" integrity="sha384-enpDwFISL6M3ZGZ50Tjo8m65q06uLVnyvkFO3rsoW0UC15ATBFz3QEhr3hmxpYsn" crossorigin="anonymous">   
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
 
+    <title>H.T.DoIt</title>
+    <style>
+.form-wrap{
+    z-index: -1;
+    margin:auto;
+    margin-top: 100px;
+	max-width:525px;
+    min-height:650px;
+    margin-bottom: 50px;
+    position:relative;
+    background:url(https://cdn.pixabay.com/photo/2015/04/20/13/44/sports-731506_1280.jpg) no-repeat center;
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+
+.form-html{
+	width:100%;
+    height:100%;
+	position:absolute;
+    padding:90px 70px 50px 70px;
+    background:rgba(40,57,101,.9);
+}
+
+.form-html .title,
+.form-form .group .check{
+	display:none;
+}
+
+.form-html .tab{
+	font-size:22px;
+	margin-right:15px;
+	padding-bottom:5px;
+	margin:0 15px 10px 0;
+	display:inline-block;
+	border-bottom:2px solid transparent;
+}
+
+.form-html .title + .tab{
+	color:#fff;
+	border-color:#1161ee;
+}
+
+.form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+
+.form .group{
+	margin-bottom:15px;
+}
+
+.form .group .label,
+.form .group .input,
+.form .group .loginbutton{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.form .group .signupbutton{
+	width:100%;
+	color:#000;
+	display:block;
+}
+
+.form .group .input,
+.form .group .loginbutton,
+.form .group .signupbutton{
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+}
+
+.form .group input[data-type="password"]{
+	text-security:circle;
+	-webkit-text-security:circle;
+}
+
+.form .group .label{
+	color:#aaa;
+	font-size:12px;
+}
+
+.form .group .loginbutton{
+	background:#1161ee;
+}
+
+.form .group .signupbutton{
+	background:#ffffff;
+}
+#footer{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 15px 0;
+	text-align: center;
+  color: gray;
+  font-size: 12px;
+}
+    </style>
+</head>
 <body>
     <% include ../partials/header %>
     <div class="form-wrap">

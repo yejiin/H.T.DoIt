@@ -85,7 +85,7 @@ router.get("/:category/:currentPage/:trainNo/detail", function(request, response
     var trainNo = request.params.trainNo;
     var model = {};
 
-    connection.query('SELECT train_title, train_des FROM training WHERE train_no=?',[trainNo],function(error, result){
+    connection.query('SELECT train_title, train_des, train_vid FROM training WHERE train_no=?',[trainNo],function(error, result){
         if(error){
             console.log(error + "training mysql 실패");
             return;

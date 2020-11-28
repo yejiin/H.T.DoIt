@@ -1,7 +1,6 @@
 body{
 	color:#6a6f8c;
 }
-
 .form-wrap{
     margin:0;
 	width:100%;
@@ -92,14 +91,3 @@ body{
 .form .group .signupbutton{
 	background:#ffffff;
 }
-
-#footer{
-	position: absolute;
-	left: 0;
-	bottom: auto;
-	width: 100%;
-	padding: 15px 0;
-	  text-align: center;
-	color: gray;
-	font-size: 12px;
-  }

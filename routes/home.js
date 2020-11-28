@@ -11,10 +11,6 @@ router.get('/', function(request, response){
     response.render('home');
 });
 
-// Login
-router.get('/login', function(req, res){
-    res.render('form/login');
-});
 
 // Signup
 router.get('/signup', function(req, res){

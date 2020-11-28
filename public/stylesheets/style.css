@@ -1,26 +1,26 @@
 #header{
+  z-index: 3;
   position: fixed;
   top: 0;
   width: 100%;
   left: 0;
   right: 0;
-
 }
+
+/*header*/
 .navbar-brand{
   font-family: arial;
   font-size: 30px;
   font-weight: bold;
 }
 
+/*header*/
 .form-item{
-  list-style-type:none; 
+  list-style-type: none;
 }
 
-.jumbotron{
-  text-align: center;
-}
 
-#footer{
+/*#footer{
   position: absolute;
   left: 0;
   bottom: 0;
@@ -29,24 +29,4 @@
 	text-align: center;
   color: gray;
   font-size: 12px;
-}
-
-.bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-#footer{
-	position: absolute;
-	left: 0;
-	bottom: auto;
-	width: 100%;
-	padding: 15px 0;
-	  text-align: center;
-	color: gray;
-	font-size: 12px;
-  }
+}*/
