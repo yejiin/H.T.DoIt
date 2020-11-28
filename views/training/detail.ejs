@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
-    <script src="//code.jquery.com/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+    <title>H.T.DoIt</title>
 <style>
   /* 사이드바 래퍼 스타일 */
-
   #training{
     pointer-events: none;
     cursor: default;
   }
+
   #page-wrapper {
     padding-left: 250px;
-    margin-top:50px;
+    margin-top:58px;
     width:102%;
     margin-left:-1%
   }
@@ -40,6 +38,8 @@
     width: 250px;
     margin: 0;
     padding: 0;
+    padding-right: 25px;
+    text-align: center;
     list-style: none;
   }
   
@@ -63,6 +63,16 @@
     font-size: 1.3em;
     line-height: 3em;
   }
+
+  #footer{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 15px 0;
+	text-align: center;
+  color: gray;
+  font-size: 12px;
+}
 </style>
 
 </head>
@@ -80,49 +90,35 @@
       <li><a href="/training/advanced/1">고급</a></li>
       <li><a href="/training/intermediate/1">중급</a></li>
       <li><a href="/training/basic/1">초급</a></li>
-      <li><a href="#">메뉴 5</a></li>
-      <li><a href="#">메뉴 6</a></li>
-      <li><a href="#">메뉴 7</a></li>
-      <li><a href="#">메뉴 8</a></li>
-      <li><a href="#">메뉴 9</a></li>
     </ul>
   </div>
   <!-- /사이드바 -->
   <div class="card mb-3" style="user-select: auto;">
-    <h3 class="card-header" style="user-select: auto;">Card header</h3>
+    <h3 class="card-header" style="user-select: auto;">TRAINING</h3>
     <div class="card-body" style="user-select: auto;">
-      <h5 class="card-title" style="user-select: auto;">Special title treatment</h5>
-      <h6 class="card-subtitle text-muted" style="user-select: auto;">Support card subtitle</h6>
+      <h5 class="card-title" style="user-select: auto;"><%=model.traindetail[0].train_title%></h5>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size: 1.125rem; text-anchor: middle; user-select: auto;">
       <rect width="100%" height="100%" fill="#868e96" style="user-select: auto;"></rect>
       <text x="50%" y="50%" fill="#dee2e6" dy=".3em" style="user-select: auto;">Image cap</text>
     </svg>
     <div class="card-body" style="user-select: auto;">
-      <p class="card-text" style="user-select: auto;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <p class="card-text" style="user-select: auto;"><%=model.traindetail[0].train_des%></p>
     </div>
     <ul class="list-group list-group-flush" style="user-select: auto;">
-      <li class="list-group-item" style="user-select: auto;">Cras justo odio</li>
-      <li class="list-group-item" style="user-select: auto;">Dapibus ac facilisis in</li>
-      <li class="list-group-item" style="user-select: auto;">Vestibulum at eros</li>
+      <li class="list-group-item" style="user-select: auto;">운동순서</li>
+      <li class="list-group-item" style="user-select: auto;">1</li>
+      <li class="list-group-item" style="user-select: auto;">2</li>
     </ul>
     <div class="card-body" style="user-select: auto;">
-      <a href="#" class="card-link" style="user-select: auto;">Card link</a>
-      <a href="#" class="card-link" style="user-select: auto;">Another link</a>
+      <p class="card-link" style="user-select: auto;">유튜브 원본보기</p>
+      <a href="#" class="card-link" style="user-select: auto;">Youtube link</a>
     </div>
     <div class="card-footer text-muted" style="user-select: auto;">
-      2 days ago
+      3
     </div>
   </div>
-  <div class="card" style="user-select: auto;">
-    <div class="card-body" style="user-select: auto;">
-      <h4 class="card-title" style="user-select: auto;">Card title</h4>
-      <h6 class="card-subtitle mb-2 text-muted" style="user-select: auto;">Card subtitle</h6>
-      <p class="card-text" style="user-select: auto;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link" style="user-select: auto;">Card link</a>
-      <a href="#" class="card-link" style="user-select: auto;">Another link</a>
-    </div>
-  </div>
+
 
  
 </main>

@@ -13,9 +13,10 @@
     pointer-events: none;
     cursor: default;
   }
+
   #page-wrapper {
     padding-left: 250px;
-    margin-top:50px;
+    margin-top:58px;
     width:102%;
     margin-left:-1%
   }
@@ -40,6 +41,8 @@
     width: 250px;
     margin: 0;
     padding: 0;
+    padding-right: 25px;
+    text-align: center;
     list-style: none;
   }
   
@@ -63,10 +66,27 @@
     font-size: 1.3em;
     line-height: 3em;
   }
-</style>
-<script type=text/javascript>
 
-</script>
+  #footer{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 15px 0;
+	text-align: center;
+  color: gray;
+  font-size: 12px;
+  margin-left: 130px;
+}
+
+#search{
+  margin-left: 15px;
+  padding-bottom: 15px;
+}
+.pagination{
+  margin-left: 585px;
+}
+
+</style>
 </head>
 <body>
     <% include ../partials/header %>
@@ -82,23 +102,18 @@
       <li><a href="/training/advanced/1">고급</a></li>
       <li><a href="/training/intermediate/1">중급</a></li>
       <li><a href="/training/basic/1">초급</a></li>
-      <li><a href="#">메뉴 5</a></li>
-      <li><a href="#">메뉴 6</a></li>
-      <li><a href="#">메뉴 7</a></li>
-      <li><a href="#">메뉴 8</a></li>
-      <li><a href="#">메뉴 9</a></li>
     </ul>
   </div>
   <!-- /사이드바 -->
 
   <!-- 본문 -->
   <div id="page-content-wrapper">
-    <form class="form-inline my-2 my-lg-0" style="user-select: auto;">
+    <form class="form-inline my-2 my-lg-0" style="user-select: auto;" id="search">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" style="user-select: auto;">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit" style="user-select: auto;">Search</button>
       </form>
     <div class="container-fluid">
-        <table class="table table-hover" style="user-select: auto;">
+        <table class="table table-hover" style="user-select: auto;" id="table">
             <thead style="user-select: auto;">
               <tr style="user-select: auto;">
                 <th scope="col" style="user-select: auto;">Type</th>
@@ -113,9 +128,9 @@
                 <th scope="row" style="user-select: auto;"> <a href='/training/<%=model.trainlist[i].train_cate%>/<%=model.currentPage%>/<%=model.trainlist[i].train_no%>/detail'>
                   <img src="<%=model.trainlist[i].train_url%>" width="400" height="250"></a>
                 </th>
-                <td style="user-select: auto;"><%=model.trainlist[i].train_cate%></td>
-                <td style="user-select: auto;"><%=model.trainlist[i].train_title%></td>
-                <td style="user-select: auto;">55</td>
+                <td style="user-select: auto;"class="content"><%=model.trainlist[i].train_cate%></td>
+                <td style="user-select: auto;"class="content"><%=model.trainlist[i].train_title%></td>
+                <td style="user-select: auto;"class="content"><button>시작하기</button></td>
               </tr>
               <% } %>
             </tbody>

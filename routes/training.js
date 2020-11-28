@@ -82,6 +82,21 @@ router.get("/:category/:currentPage", function(request, response){
 
 
 router.get("/:category/:currentPage/:trainNo/detail", function(request, response){
-    response.render('training/detail');
+    var trainNo = request.params.trainNo;
+    var model = {};
+
+    connection.query('SELECT train_title, train_des FROM training WHERE train_no=?',[trainNo],function(error, result){
+        if(error){
+            console.log(error + "training mysql 실패");
+            return;
+        }else{
+            model.traindetail=result;
+            console.log(model);
+        response.render('training/detail', {model:model});
+    }
+    });
+    
+    
 });
+
 module.exports = router;
