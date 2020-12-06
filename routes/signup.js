@@ -6,7 +6,7 @@ var connection = db_config.init();
 db_config.connect(connection);
 
 router.get('/', function (request, response) {
-    response.render('signup');
+    response.render('form/signup');
 });
 
 router.post('/', function (request, response) {

@@ -24,11 +24,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(function(request, response, next){
+  if(request.session.loggedin == true){
+    response.locals.username = request.session.username;
+    console.log("세션");
+  }
+  next();
+})
 
 // Routes
 app.use('/', homeRouter);
 app.use('/login', loginRouter);
-app.use('/logout', loginRouter);
 app.use('/signup', signupRouter);
 app.use('/training', trainingRouter);
 

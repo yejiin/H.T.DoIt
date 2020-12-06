@@ -85,8 +85,14 @@
 .pagination{
   margin-left: 585px;
 }
-
 </style>
+<script type="text/javascript">
+
+function startNosession(){
+  alert("로그인하세요.");
+}
+
+</script>
 </head>
 <body>
     <% include ../partials/header %>
@@ -125,12 +131,16 @@
             <tbody style="user-select: auto;">
               <% for(var i=0; i<model.trainlist.length; i++){ %>
               <tr style="user-select: auto;" id="onetraining">
-                <th scope="row" style="user-select: auto;"> <a href='/training/<%=model.trainlist[i].train_cate%>/<%=model.currentPage%>/<%=model.trainlist[i].train_no%>/detail'>
-                  <img src="<%=model.trainlist[i].train_url%>" width="400" height="250"></a>
+                <th scope="row" style="user-select: auto;"> <a href='/training/<%=model.trainlist[i].cate%>/<%=model.currentPage%>/<%=model.trainlist[i].no%>/detail'>
+                  <img src="<%=model.trainlist[i].url%>" width="400" height="250"></a>
                 </th>
-                <td style="user-select: auto;"class="content"><%=model.trainlist[i].train_cate%></td>
-                <td style="user-select: auto;"class="content"><%=model.trainlist[i].train_title%></td>
-                <td style="user-select: auto;"class="content"><button>시작하기</button></td>
+                <td style="user-select: auto;"class="content"><%=model.trainlist[i].cate%></td>
+                <td style="user-select: auto;"class="content"><%=model.trainlist[i].title%></td>
+                <% if(!locals.username) { %>
+                  <td style="user-select: auto;"class="content"><button type="button" class="btn btn-info"style="user-select: auto;"id="startbtn"onClick="startNosession();">시작하기</button></td>
+                <% } else { %>
+                  <td style="user-select: auto;"class="content"><button type="button" class="btn btn-info" style="user-select: auto;" id="startbtn"onClick="location.href='/training/<%=model.trainlist[i].cate%>/<%=model.currentPage%>/<%=model.trainlist[i].no%>/start'">시작하기</button></td>
+                <% } %>
               </tr>
               <% } %>
             </tbody>

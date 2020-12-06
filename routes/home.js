@@ -12,15 +12,12 @@ router.get('/', function(request, response){
 });
 
 
-// Signup
-router.get('/signup', function(req, res){
-    res.render('form/signup');
-});
+
 
 // Logout
 router.get('/logout', function (request, response) {
     request.session.loggedin = false;
-    response.render('home');
+    response.redirect('/');
 })
 
 

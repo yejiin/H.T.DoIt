@@ -17,16 +17,19 @@ router.post('/', function (request, response) {
             if (error) throw error;
             if (results.length > 0) {
                 var username = results[0].username;
+                var userid = results[0].id;
                 request.session.loggedin = true;
+                request.session.userid = userid;
                 request.session.username = username;
-                response.render('home', { username: request.session.username });
+                response.redirect('/');
+
             } else {
                 response.render('form/login', { login: "error" });
             }
         });
     } else {
         response.send('Please enter Id and Password!');
-        response.redirect('/home');
+        response.redirect('/');
     }
 
 });
