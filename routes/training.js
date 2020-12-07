@@ -35,13 +35,12 @@ router.get("/:category/:currentPage", function(request, response){
                     lastPage++;
                 }
             }
-            connection.query('SELECT no, title, url, cate FROM training ORDER By no DESC LIMIT ?,?', [beginRow, rowPerPage], function (error, results){
+            connection.query('SELECT no, title, img, cate FROM training ORDER By no DESC LIMIT ?,?', [beginRow, rowPerPage], function (error, results){
                 if(error){
                     console.log(error + "training mysql 조회 실패");
                     return;
                 }else{
                     model.trainlist = results;
-                    console.log(results);
                     model.currentPage = currentPage;
                     model.lastPage = lastPage;
                     console.log("last " +lastPage + " current :" + currentPage);
@@ -62,13 +61,12 @@ router.get("/:category/:currentPage", function(request, response){
                     lastPage++;
                 }
             }
-            connection.query('SELECT no, title, url, cate FROM training WHERE cate=? ORDER By no DESC LIMIT ?,?', [category, beginRow, rowPerPage], function (error, results){
+            connection.query('SELECT no, title, img, cate FROM training WHERE cate=? ORDER By no DESC LIMIT ?,?', [category, beginRow, rowPerPage], function (error, results){
                 if(error){
                     console.log(error + "training mysql 조회 실패");
                     return;
                 }else{
                     model.trainlist = results;
-                    console.log(results);
                     model.currentPage = currentPage;
                     model.lastPage = lastPage;
                     console.log("last " +lastPage + " current :" + currentPage);
@@ -91,7 +89,6 @@ router.get("/:category/:currentPage/:trainNo/detail", function(request, response
             return;
         }else{
             model.traindetail=results;
-            console.log(model);
         response.render('training/detail', {model:model});
     }
     }); 
@@ -104,12 +101,13 @@ router.get("/:category/:currentPage/:trainNo/start", function(request, response)
     var userId = request.session.userid;
 
     connection.query('SELECT * FROM mytraining WHERE user_id=?, training_no=?',[userId,trainNo],function(error, results){
-        if(results == "undefined"){
+        if(results == undefined){
             connection.query('INSERT INTO mytraining (user_id, training_no) VALUES (?,?)',[userId,trainNo],function(error, results){
                 if(error){
                     console.log(error + "mytraining insert 실패");
                     return;
                 }
+                console.log("insert!!");
                 response.redirect('/training/'+category+'/'+currentPage);
             });
         }else{

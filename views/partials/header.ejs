@@ -9,7 +9,7 @@
   <div class="collapse navbar-collapse" id="navbarColor03" style="user-select: auto;">
     <ul class="navbar-nav mr-auto" style="user-select: auto;">
       <li class="nav-item active" style="user-select: auto;">
-        <a class="nav-link" href="#" style="user-select: auto;">Home</a>
+        <a class="nav-link" href="/" style="user-select: auto;">Home</a>
         <span class="sr-only" style="user-select: auto;">(current)</span>
         </a>
       </li>
@@ -21,7 +21,7 @@
       </li>
       <% if (locals.username) { %>
       <li class="nav-item" style="user-select: auto;">
-        <a class="nav-link" href="#" style="user-select: auto;">My Trainingroom</a>
+        <a class="nav-link" href="/room" style="user-select: auto;">My Trainingroom</a>
       </li>
       <li class="nav-item" style="user-select: auto;">
         <a class="nav-link" href="#" style="user-select: auto;">My Statue</a>
@@ -30,26 +30,24 @@
     </ul>
 
     <% if (locals.username) { %>
-      <ul class="form-inline my-2 my-lg-0" style="user-select: auto;">
-        <li class="form-item" style="user-select: auto;">
-          <a class="btn login" href="myacount" style="user-select: auto;"><%= username %> MyAccount</a>
-        </li>
-        <li class="form-item" style="user-select: auto;">
-          <a class="btn signup" href="logout" style="user-select: auto;">logout</a>
-        </li>
-      </ul>
-  
-      <% } else { %>
-      <ul class="form-inline my-2 my-lg-0" style="user-select: auto;">
-        <li class="form-item" style="user-select: auto;">
-          <a class="btn login" href="/login" style="user-select: auto;">login</a>
-        </li>
-        <li class="form-item" style="user-select: auto;">
-          <a class="btn signup" href="/signup" style="user-select: auto;">signup</a>
-        </li>
-      </ul>
-  
-      <% } %>
+    <ul class="form-inline my-2 my-lg-0" style="user-select: auto;">
+      <li class="form-item" style="user-select: auto;">
+        <a class="btn login" href="myacount" style="user-select: auto;"><%= username %> MyAccount</a>
+      </li>
+      <li class="form-item" style="user-select: auto;">
+        <a class="btn signup" href="logout" style="user-select: auto;">logout</a>
+      </li>
+    </ul>  
+    <% } else { %>
+    <ul class="form-inline my-2 my-lg-0" style="user-select: auto;">
+      <li class="form-item" style="user-select: auto;">
+        <a class="btn login" href="/login" style="user-select: auto;">login</a>
+      </li>
+      <li class="form-item" style="user-select: auto;">
+        <a class="btn signup" href="/signup" style="user-select: auto;">signup</a>
+      </li>
+    </ul>
+    <% } %>
 
     <!--form class="form-inline my-2 my-lg-0" style="user-select: auto;">
         <button class="btn login" href="login" style="user-select: auto;">login</button>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style>
+  #footer{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 15px 0;
+	text-align: center;
+  color: gray;
+  font-size: 12px;
+}
+#page-content-wrapper{
+    margin-top: 100px;
+    margin-right: 200px;
+    margin-left: 200px;
+}
+.list-group{
+    margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+    <% include ../partials/header %>
+<main>   
+  <div id="page-content-wrapper">
+      <h3>My TrainingRoom</h3>
+    <% for(var i=0; i<model.trainlist.length; i++) {%>
+        <div class="list-group" style="user-select: auto;">
+            <a href="/room/<%=model.trainlist[i].no%>/detail" class="list-group-item list-group-item-action flex-column align-items-start" style="user-select: auto;">
+                <div class="d-flex w-100 justify-content-between" style="user-select: auto;">
+                    <img src="<%=model.trainlist[i].img%>" width="300" height="150">
+                    <h5 class="mb-1" style="user-select: auto;"><%=model.trainlist[i].title%></h5>
+                    <small class="text-muted" style="user-select: auto;">진행중</small>
+                </div>
+            </a>
+            
+        </div>
+        <% } %>
+    
+  </div>
+</main>
+
+<% include ../partials/footer %>
+</body>
+
+</html>

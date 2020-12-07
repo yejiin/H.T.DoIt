@@ -12,6 +12,7 @@ var homeRouter = require('./routes/home');
 var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
 var trainingRouter = require('./routes/training');
+var roomRouter = require('./routes/room');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,6 +38,7 @@ app.use('/', homeRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 app.use('/training', trainingRouter);
+app.use('/room', roomRouter);
 
 
 // app.use(function(request, response, next){

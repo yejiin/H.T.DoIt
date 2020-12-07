@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+    <title>H.T.DoIt</title>
+<style>
+  
+  #footer{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 15px 0;
+	text-align: center;
+  color: gray;
+  font-size: 12px;
+}
+
+#player-container {
+      width: 70vw;
+      height: 39.375vw;
+      max-width: 800px;
+      display: block;
+      max-height: 434.8125px;
+      margin: 10px auto;
+}
+
+#main{
+  text-align: center;
+  margin-top: 80px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+
+</style>
+</head>
+<body>
+    <% include ../partials/header %>
+<main>
+<div id="page-wrapper">
+  <div class="card mb-3" style="user-select: auto; z-index:1;;" id="main">
+    <h3 class="card-header" style="user-select: auto;"><%=title%></h3>
+ 
+    <div id="player-container" style="z-index:2;">
+    <iframe width="672" height="378" src="https://www.youtube.com/embed/<%=vid%>" 
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="card-footer text-muted" style="user-select: auto;">
+      <button type="button" class="btn btn-outline-primary" style="user-select: auto;">오늘 운동 완료</button>
+    </div>
+  </div>
+ </div>
+</main>
+<% include ../partials/footer %>
+</body>
+</html>

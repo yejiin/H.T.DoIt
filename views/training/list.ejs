@@ -132,7 +132,7 @@ function startNosession(){
               <% for(var i=0; i<model.trainlist.length; i++){ %>
               <tr style="user-select: auto;" id="onetraining">
                 <th scope="row" style="user-select: auto;"> <a href='/training/<%=model.trainlist[i].cate%>/<%=model.currentPage%>/<%=model.trainlist[i].no%>/detail'>
-                  <img src="<%=model.trainlist[i].url%>" width="400" height="250"></a>
+                  <img src="<%=model.trainlist[i].img%>" width="400" height="250"></a>
                 </th>
                 <td style="user-select: auto;"class="content"><%=model.trainlist[i].cate%></td>
                 <td style="user-select: auto;"class="content"><%=model.trainlist[i].title%></td>
