@@ -81,6 +81,8 @@ router.get("/:category/:currentPage", function(request, response){
 
 router.get("/:category/:currentPage/:trainNo/detail", function(request, response){
     var trainNo = request.params.trainNo;
+    var userId = request.session.userid;
+  
     var model = {};
 
     connection.query('SELECT title, des, vid FROM training WHERE no=?',[trainNo],function(error, results){
@@ -89,8 +91,23 @@ router.get("/:category/:currentPage/:trainNo/detail", function(request, response
             return;
         }else{
             model.traindetail=results;
-        response.render('training/detail', {model:model});
-    }
+       
+        }
+        connection.query('SELECT startdate FROM mytraining WHERE user_id=? AND training_no=?', [userId, trainNo],function(error, results){
+            if(error){
+                console.log(error + "트레이닝 시작 여부 에러");
+                return;
+            }else{
+                if(results[0] === undefined){
+                    model.start="no";
+                }else{
+                    model.start="yes";
+                    var time = new Date(results[0].startdate).toISOString().replace(/T/, ' ').split(" ");
+                    model.startdate = time[0];
+                }
+                response.render('training/detail', {model:model});
+            }
+        });
     }); 
 });
 

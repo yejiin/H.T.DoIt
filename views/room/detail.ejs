@@ -3,6 +3,9 @@
 <head>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+
     <title>H.T.DoIt</title>
 <style>
   
@@ -31,26 +34,129 @@
   margin-left: 200px;
   margin-right: 200px;
 }
-
-
 </style>
+<script type="text/javascript">
+
+    function completed(){
+        alert("운동을 완료했습니다.");
+        location='detail/complete?no=<%=trainingNo%>';
+        
+    }
+</script>
 </head>
 <body>
     <% include ../partials/header %>
 <main>
 <div id="page-wrapper">
   <div class="card mb-3" style="z-index: 1;" id="main">
-    <h3 class="card-header"><%=title%></h3>
+    <h3 class="card-header"><%=title%> <button type="button" class="btn btn-outline-primary" onclick="completed()">오늘 운동 완료</button></h3>
  
     <div id="player-container" style="z-index:2;">
     <iframe width="672" height="378" src="https://www.youtube.com/embed/<%=vid%>" 
       frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div class="card-footer text-muted">
-      <button type="button" class="btn btn-outline-primary">오늘 운동 완료</button>
+      <h3>운동 기록</h3>
+      <canvas id="myChart" width="400" height="300"></canvas>
+    <button id="sendAjax" onclick="sendAjax('/room/test/<%=mytrainingNo%>')">button</button>
     </div>
   </div>
+  
+    
  </div>
+    <script type="text/javascript">
+
+    var data = {
+    labels: [
+        "0", "0", "0", "0", "0", "0", "0"
+    ],
+    datasets: [
+        {
+            label: 'Count',
+            data: [
+                1, 2, 3, 4, 5, 6, 7
+            ],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }
+    ]
+};
+
+var options = {
+    animation: {
+        animateScale: true
+    },
+    responsive: false,
+    scales: {
+        yAxes: [
+            {
+                ticks: {
+                    beginAtZero: true
+                }
+            }
+        ]
+    }
+};
+
+var ctx = document.getElementById("myChart").getContext('2d');
+var myBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: options
+});
+
+
+function sendAjax(url) {
+    var oReq = new XMLHttpRequest();
+    oReq.open('POST', url);
+    oReq.setRequestHeader('Content-Type', "application/json") // json 형태로 보낸다
+    oReq.send();
+
+    oReq.addEventListener('load', function() {
+        var result = JSON.parse(oReq.responseText);
+        var count = result.count;
+        var trainingdate = result.trainingdate;
+        var comp_data = data.datasets[0].data;
+        var date_data = data.labels;
+
+        for (var i = 0; i < comp_data.length; i++) {
+            comp_data[i] = count[i];
+        }
+
+        for (var i = 0; i < date_data.length; i++){
+            if(trainingdate[i] == undefined){
+                
+                date_data[i] = " ";
+            }else{
+                date_data[i] = trainingdate[i];
+            }
+        }
+        
+
+        data.datasets[0].data = comp_data;
+        data.labels = date_data;
+        myBarChart.update();
+    })
+
+ 
+}
+    </script>
+</body>
 </main>
 <% include ../partials/footer %>
 </body>

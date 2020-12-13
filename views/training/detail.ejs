@@ -127,9 +127,15 @@
       <p class="card-text"><%=model.traindetail[0].des%></p>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">운동순서</li>
-      <li class="list-group-item">1</li>
-      <li class="list-group-item">2</li>
+      <li class="list-group-item">운동순서<p></li>
+      <li class="list-group-item">
+      <% if(model.start == "yes") { %>
+        시작중( <%=model.startdate%> ~ )
+      <% } else { %>
+        <button type="button" class="btn btn-info" id="startbtn"onclick="startNosession();">시작하기</button>
+      <% } %>
+      </li>
+        <li class="list-group-item">2</li>
     </ul>
     <div class="card-body">
       <p class="card-link">유튜브 원본보기</p>
@@ -140,6 +146,7 @@
     </div>
   </div>
  </div>
+ 
 </main>
 <% include ../partials/footer %>
 </body>
