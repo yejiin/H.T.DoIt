@@ -85,7 +85,7 @@ router.get("/:category/:currentPage/:trainNo/detail", function(request, response
   
     var model = {};
 
-    connection.query('SELECT title, des, vid FROM training WHERE no=?',[trainNo],function(error, results){
+    connection.query('SELECT title, des, vid, cate, no FROM training WHERE no=?',[trainNo],function(error, results){
         if(error){
             console.log(error + "training mysql 실패");
             return;
@@ -111,7 +111,7 @@ router.get("/:category/:currentPage/:trainNo/detail", function(request, response
     }); 
 });
 
-router.get("/:category/:currentPage/:trainNo/start", function(request, response){
+router.get("/:category/:trainNo/start", function(request, response){
     var category = request.params.category;
     var currentPage = request.params.currentPage;
     var trainNo = request.params.trainNo;

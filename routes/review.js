@@ -9,7 +9,7 @@ db_config.connect(connection);
 
 
 router.get('', function(request, response){
-    var rowPerPage = 5;
+    var rowPerPage = 10;
     var currentPage = 1;
 
     if(request.query.page){

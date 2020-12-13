@@ -86,13 +86,6 @@
   margin-left: 585px;
 }
 </style>
-<script type="text/javascript">
-
-function startNosession(){
-  alert("로그인하세요.");
-}
-
-</script>
 </head>
 <body>
     <% include ../partials/header %>
@@ -114,10 +107,6 @@ function startNosession(){
 
   <!-- 본문 -->
   <div id="page-content-wrapper">
-    <form class="form-inline my-2 my-lg-0" id="search">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form>
     <div class="container-fluid">
         <table class="table table-hover" id="table">
             <thead>
@@ -125,7 +114,6 @@ function startNosession(){
                 <th scope="col">Video</th>
                 <th scope="col">카테고리</th>
                 <th scope="col">제목</th>
-                <th scope="col">시작버튼</th>
               </tr>
             </thead>
             <tbody>
@@ -134,13 +122,8 @@ function startNosession(){
                 <th scope="row"> <a href='/training/<%=model.trainlist[i].cate%>/<%=model.currentPage%>/<%=model.trainlist[i].no%>/detail'>
                   <img src="<%=model.trainlist[i].img%>" width="400" height="250"></a>
                 </th>
-                <td class="content"><%=model.trainlist[i].cate%></td>
-                <td class="content"><%=model.trainlist[i].title%></td>
-                <% if(!locals.username) { %>
-                  <td class="content"><button type="button" class="btn btn-info" id="startbtn"onclick="startNosession();">시작하기</button></td>
-                <% } else { %>
-                  <td class="content"><button type="button" class="btn btn-info" id="startbtn"onclick="location.href='/training/<%=model.trainlist[i].cate%>/<%=model.currentPage%>/<%=model.trainlist[i].no%>/start'">시작하기</button></td>
-                <% } %>
+                <td class="content" style="vertical-align: middle;"><%=model.trainlist[i].cate%></td>
+                <td class="content" style="vertical-align: middle;"><%=model.trainlist[i].title%></td>
               </tr>
               <% } %>
             </tbody>

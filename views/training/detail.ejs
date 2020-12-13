@@ -94,6 +94,13 @@
 
 
 </style>
+<script type="text/javascript">
+
+  function startNosession(){
+    alert("로그인하세요.");
+  }
+  
+  </script>
 </head>
 <body>
     <% include ../partials/header %>
@@ -116,33 +123,31 @@
 
   <div class="card mb-3" style="z-index: 1;" id="main">
     <h3 class="card-header">TRAINING</h3>
-    <div class="card-body">
+    <div class="card-body"  style="height: 50px;">
       <h5 class="card-title"><%=model.traindetail[0].title%></h5>
     </div>
     <div id="player-container" style="z-index: 2;">
     <iframe width="672" height="378" src="https://www.youtube.com/embed/<%=model.traindetail[0].vid%>" 
       frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <div class="card-body">
-      <p class="card-text"><%=model.traindetail[0].des%></p>
-    </div>
+
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">운동순서<p></li>
+      
       <li class="list-group-item">
-      <% if(model.start == "yes") { %>
-        시작중( <%=model.startdate%> ~ )
-      <% } else { %>
+      <% if(!model.startdate) { 
+        if(!locals.username){%>
         <button type="button" class="btn btn-info" id="startbtn"onclick="startNosession();">시작하기</button>
+      <% }else{ %>
+        <button type="button" class="btn btn-info" id="startbtn"onclick="location.href='/training/<%=model.traindetail[0].cate%>/<%=model.traindetail[0].no%>/start'">시작하기</button>
+      <% }} else { %>
+        <p>시작중( <%=model.startdate%> ~ ) </p>
       <% } %>
       </li>
-        <li class="list-group-item">2</li>
+      <li class="list-group-item"><h5>설명</h5><p class="card-text"><%=model.traindetail[0].des%></p></li>
     </ul>
-    <div class="card-body">
-      <p class="card-link">유튜브 원본보기</p>
-      <a href="#" class="card-link">Youtube link</a>
-    </div>
     <div class="card-footer text-muted">
-      3
+      <p class="card-link">유튜브 원본보기</p>
+      <a href="https://www.youtube.com/watch?v=<%=model.traindetail[0].vid%>" class="card-link">Youtube link</a>
     </div>
   </div>
  </div>

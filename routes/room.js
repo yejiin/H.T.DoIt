@@ -55,7 +55,7 @@ router.get('/:no/detail/complete', function(request, response){
     
 });
 
-router.post('/test/:no', function(request, response){
+router.post('/chart/:no', function(request, response){
     var no = request.params.no;
     var responseData = {};
 

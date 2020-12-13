@@ -48,7 +48,7 @@
             var data = results[i]; 
             var page = model.currentPage;%>
           <tr>
-            <th scope="row" style="text-align: center;"><%=(i+1)+(page-1)*5%></th>
+            <th scope="row" style="text-align: center;"><%=(i+1)+(page-1)*10%></th>
             <td><%=data.user_id%></td>
             <td style="font-size: 8px; vertical-align: middle;">[<%=data.ttitle%>]</td>
             <td style=" width: 300px;"><a href="/review/detail/<%=data.no%>"><%=data.title%><a></a></td>
@@ -59,7 +59,7 @@
       </table>
       <button type="button" class="btn btn-primary" onclick="location.href='/review/write'">글쓰기</button>
 
-      <div  style="margin-left: 400px;">
+      <div  style="margin-left: 350px;">
         <ul class="pagination">
             <li class="page-item disabled">
               <a class="page-link" href="#">&laquo;</a>
