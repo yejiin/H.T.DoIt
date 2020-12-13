@@ -32,12 +32,12 @@
   <div id="page-content-wrapper">
       <h3>My TrainingRoom</h3>
     <% for(var i=0; i<model.trainlist.length; i++) {%>
-        <div class="list-group" style="user-select: auto;">
-            <a href="/room/<%=model.trainlist[i].no%>/detail" class="list-group-item list-group-item-action flex-column align-items-start" style="user-select: auto;">
-                <div class="d-flex w-100 justify-content-between" style="user-select: auto;">
+        <div class="list-group">
+            <a href="/room/<%=model.trainlist[i].no%>/detail" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
                     <img src="<%=model.trainlist[i].img%>" width="300" height="150">
-                    <h5 class="mb-1" style="user-select: auto;"><%=model.trainlist[i].title%></h5>
-                    <small class="text-muted" style="user-select: auto;">진행중</small>
+                    <h5 class="mb-1"><%=model.trainlist[i].title%></h5>
+                    <small class="text-muted">진행중</small>
                 </div>
             </a>
             

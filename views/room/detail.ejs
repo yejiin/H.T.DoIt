@@ -39,15 +39,15 @@
     <% include ../partials/header %>
 <main>
 <div id="page-wrapper">
-  <div class="card mb-3" style="user-select: auto; z-index:1;;" id="main">
-    <h3 class="card-header" style="user-select: auto;"><%=title%></h3>
+  <div class="card mb-3" style="z-index: 1;" id="main">
+    <h3 class="card-header"><%=title%></h3>
  
     <div id="player-container" style="z-index:2;">
     <iframe width="672" height="378" src="https://www.youtube.com/embed/<%=vid%>" 
       frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <div class="card-footer text-muted" style="user-select: auto;">
-      <button type="button" class="btn btn-outline-primary" style="user-select: auto;">오늘 운동 완료</button>
+    <div class="card-footer text-muted">
+      <button type="button" class="btn btn-outline-primary">오늘 운동 완료</button>
     </div>
   </div>
  </div>
