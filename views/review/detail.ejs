@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+<style>
+
+#page-content-wrapper{
+    width: 800px;
+    margin: auto;
+
+  }
+
+  #footer{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 15px 0;
+	text-align: center;
+  color: gray;
+  font-size: 12px;
+}
+</style>
+<script>
+    $(document).ready(function(){
+        $("#modify").click(function(){
+            var pw = prompt('비밀번호 입력');
+            var con = "";
+            $.ajax({
+                url : "/review/password",
+                type : "POST",
+                dataType : "JSON",
+                data:{"password":pw},
+                success: function(data){
+                   con = data;
+                   if(con == '{"result":"no"}'){
+                    alert("비밀번호가 틀렸습니다.");
+                   }else{
+                       location="/review/update/<%=results[0].no%>";
+                   }
+         
+                },
+                error : function(error){
+                }
+            })
+
+            
+        })
+    })
+
+</script>
+</head>
+<body>
+    <% include ../partials/header %>
+<main>   
+  <div id="page-content-wrapper">
+      <h3 style="margin-top: 80px;">Review 상세보기</h3>
+      <div class="card mb-3">
+        <h3 class="card-header"><%=results[0].title%></h3>
+        <div class="card-body">
+            <h6 class="card-subtitle text-muted">[<%=results[0].ttitle%>]</h6>
+        </div> 
+        <div class="card-body">
+          <p class="card-text"><%=results[0].content%></p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">작성자: <%=results[0].user_id%></li>
+          <li class="list-group-item">등록일: <%=results[0].regdate%></li>
+        </ul>
+        <div class="card-footer text-muted">
+            <a id="modify" class="card-link">글 수정</a>
+            <a href="/review" class="card-link">목록</a>
+        </div>
+      </div>
+  </div>
+</main>
+
+<% include ../partials/footer %>
+</body>
+
+</html>

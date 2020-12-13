@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style>
+
+#page-content-wrapper{
+    width: 800px;
+    margin: auto;
+
+  }
+
+  #footer{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 15px 0;
+	text-align: center;
+  color: gray;
+  font-size: 12px;
+}
+
+
+</style>
+</head>
+<body>
+    <% include ../partials/header %>
+<main>   
+  <div id="page-content-wrapper">
+      <h3 style="margin-top: 80px;">Review 작성</h3>
+      <form action="/review/write" method="post">
+        <fieldset>
+          <div class="form-group">
+            <label for="exampleInputEmail1">제목</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title">
+          </div>
+          <div class="form-group">
+            <label for="exampleSelect1">트레이닝</label>
+            <select class="form-control" name="training_no">
+              <% for(var i=0; i<results.length; i++) { %>
+                <option value="<%=results[i].no%>"><%=results[i].title%></option>
+              <% } %>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleTextarea">후기</label>
+            <textarea class="form-control" id="exampleTextarea" rows="5" name="content"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+          </div>
+          <button class="btn btn-primary" type="submit">글쓰기</button>
+      </form>
+  </div>
+</main>
+
+<% include ../partials/footer %>
+</body>
+
+</html>
