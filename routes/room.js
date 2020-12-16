@@ -47,7 +47,8 @@ router.get('/:no/detail/complete', function(request, response){
     var mytrainingNo = request.params.no;
     var trainingNo = request.query.no;
     var userId = request.session.userid;
-    connection.query('INSERT INTO mystate (mytraining_no, trainingdate, completed) VALUES (?, sysdate(), 1)', [mytrainingNo], function(error, results){
+    connection.query('INSERT INTO mystate (mytraining_no, trainingdate) VALUES (?, sysdate())',
+     [mytrainingNo], function(error, results){
             if(error) throw error;
             
         response.redirect('/room/' + mytrainingNo + '/detail?no='+trainingNo);
@@ -59,7 +60,8 @@ router.post('/chart/:no', function(request, response){
     var no = request.params.no;
     var responseData = {};
 
-    connection.query('SELECT trainingdate, COUNT(*) AS count FROM mystate WHERE mytraining_no=? GROUP BY trainingdate ORDER BY no ASC limit 7', [no],function(error, results){
+    connection.query('SELECT trainingdate, COUNT(trainingdate) AS count FROM mystate WHERE mytraining_no=?' 
+    + 'GROUP BY trainingdate ORDER BY no ASC limit 7', [no],function(error, results){
         var date = "";
 
         responseData.count = [];
