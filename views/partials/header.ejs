@@ -29,10 +29,10 @@
     <% if (locals.username) { %>
     <ul class="form-inline my-2 my-lg-0">
       <li class="form-item">
-        <a class="btn login" href="myacount"><%= username %> MyAccount</a>
+        <div class="btn login"><%= username %> MyAccount</div>
       </li>
       <li class="form-item">
-        <a class="btn signup" href="logout">logout</a>
+        <a class="btn signup" href="/logout">logout</a>
       </li>
     </ul>  
     <% } else { %>
@@ -46,9 +46,5 @@
     </ul>
     <% } %>
 
-    <!--form class="form-inline my-2 my-lg-0" style="user-select: auto;">
-        <button class="btn login" href="login" style="user-select: auto;">login</button>
-        <button class="btn signup" type="submit" style="user-select: auto;">signup</button>
-      </form-->
   </div>
 </header>

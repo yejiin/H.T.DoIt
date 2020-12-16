@@ -60,8 +60,8 @@ router.post('/chart/:no', function(request, response){
     var no = request.params.no;
     var responseData = {};
 
-    connection.query('SELECT trainingdate, COUNT(trainingdate) AS count FROM mystate WHERE mytraining_no=?' 
-    + 'GROUP BY trainingdate ORDER BY no ASC limit 7', [no],function(error, results){
+    connection.query('SELECT trainingdate, COUNT(trainingdate) AS count FROM mystate WHERE mytraining_no=?'
+    + 'GROUP BY trainingdate ORDER BY no DESC limit 7', [no],function(error, results){
         var date = "";
 
         responseData.count = [];
