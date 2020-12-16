@@ -10,8 +10,6 @@
     pointer-events: none;
     cursor: default;
   }
-
-
   #page-wrapper {
     padding-left: 250px;
     margin-top:30px;
@@ -65,7 +63,6 @@
     font-size: 1.3em;
     line-height: 3em;
   }
-
   #footer{
   left: 0;
   bottom: 0;
@@ -75,7 +72,6 @@
   color: gray;
   font-size: 12px;
 }
-
 #player-container {
       width: 70vw;
       height: 39.375vw;
@@ -84,18 +80,14 @@
       max-height: 434.8125px;
       margin: 10px auto;
 }
-
 #main{
   text-align: center;
   margin-top: 80px;
   margin-left: 200px;
   margin-right: 200px;
 }
-
-
 </style>
 <script type="text/javascript">
-
   function startNosession(){
     alert("로그인하세요.");
   }
@@ -138,7 +130,7 @@
         if(!locals.username){%>
         <button type="button" class="btn btn-info" id="startbtn"onclick="startNosession();">시작하기</button>
       <% }else{ %>
-        <button type="button" class="btn btn-info" id="startbtn"onclick="location.href='/training/<%=model.traindetail[0].cate%>/<%=model.traindetail[0].no%>/start'">시작하기</button>
+        <button type="button" class="btn btn-info" id="startbtn"onclick="location.href='/training/<%=model.traindetail[0].cate%>/<%=model.currentPage%>/<%=model.traindetail[0].no%>/start'">시작하기</button>
       <% }} else { %>
         <p>시작중( <%=model.startdate%> ~ ) </p>
       <% } %>

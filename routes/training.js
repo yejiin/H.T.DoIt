@@ -35,7 +35,7 @@ router.get("/:category/:currentPage", function(request, response){
                     lastPage++;
                 }
             }
-            connection.query('SELECT no, title, img, cate FROM training ORDER By no DESC LIMIT ?,?', [beginRow, rowPerPage], function (error, results){
+            connection.query('SELECT no, title, img, cate FROM training ORDER By no ASC LIMIT ?,?', [beginRow, rowPerPage], function (error, results){
                 if(error){
                     console.log(error + "training mysql 조회 실패");
                     return;
@@ -61,7 +61,7 @@ router.get("/:category/:currentPage", function(request, response){
                     lastPage++;
                 }
             }
-            connection.query('SELECT no, title, img, cate FROM training WHERE cate=? ORDER By no DESC LIMIT ?,?', [category, beginRow, rowPerPage], function (error, results){
+            connection.query('SELECT no, title, img, cate FROM training WHERE cate=? ORDER By no ASC LIMIT ?,?', [category, beginRow, rowPerPage], function (error, results){
                 if(error){
                     console.log(error + "training mysql 조회 실패");
                     return;
@@ -82,6 +82,7 @@ router.get("/:category/:currentPage", function(request, response){
 router.get("/:category/:currentPage/:trainNo/detail", function(request, response){
     var trainNo = request.params.trainNo;
     var userId = request.session.userid;
+    var currentPage = request.params.currentPage;
   
     var model = {};
 
@@ -105,13 +106,14 @@ router.get("/:category/:currentPage/:trainNo/detail", function(request, response
                     var time = new Date(results[0].startdate).toISOString().replace(/T/, ' ').split(" ");
                     model.startdate = time[0];
                 }
+                model.currentPage = currentPage;
                 response.render('training/detail', {model:model});
             }
         });
     }); 
 });
 
-router.get("/:category/:trainNo/start", function(request, response){
+router.get("/:category/:currentPage/:trainNo/start", function(request, response){
     var category = request.params.category;
     var currentPage = request.params.currentPage;
     var trainNo = request.params.trainNo;
@@ -125,10 +127,10 @@ router.get("/:category/:trainNo/start", function(request, response){
                     return;
                 }
                 console.log("insert!!");
-                response.redirect('/training/'+category+'/'+currentPage);
+                response.redirect('/training/'+category+'/'+currentPage +'/' +trainNo+ '/detail');
             });
         }else{
-            response.redirect('/training/'+category+'/'+currentPage);
+            response.redirect('/training/'+category+'/'+currentPage +'/' +trainNo+ '/detail');
             
         }
         

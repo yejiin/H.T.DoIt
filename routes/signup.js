@@ -22,7 +22,7 @@ router.post('/', function (request, response) {
                 connection.query('INSERT INTO user (id, password, username) VALUES(?,?,?)', [id, password, username],
                     function (error, data) {
                         if (error)
-                            console.log(errer);
+                            console.log(error);
                         else
                             console.log(data);
                     });
